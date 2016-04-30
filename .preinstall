@@ -1,8 +1,8 @@
 #!/usr/bin/env fish
 
-if ! type devd >/dev/null
+if not type devd > /dev/null
   printf "Installing devd..."
-  if type go
+  if type go > /dev/null
     go get github.com/cortesi/devd/cmd/devd
   else
     fish -c "curl -L https://github.com/cortesi/devd/releases/download/v0.5/devd-0.5-linux64.tgz"
