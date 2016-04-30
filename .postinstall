@@ -1,7 +1,7 @@
 #!/usr/bin/env fish
 
 printf "Installing Neutron...\n"
-fish -c "git clone https://github.com/NeutronCSS/neutroncss sass/neutron & await"
+fish -c "git clone https://github.com/NeutronCSS/neutroncss sass/neutron > /dev/null & await"
 if test -s "sass/neutron"
   printf "Installation successful\n"
 else
