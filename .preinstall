@@ -1,13 +1,19 @@
 #!/usr/bin/env fish
 
-if not type devd > /dev/null
-  printf "Installing devd..."
+if not type devd > /dev/null  
   if type go > /dev/null
-    go get github.com/cortesi/devd/cmd/devd
+    printf "Installing devd..."
+    fish -c "go get github.com/cortesi/devd/cmd/devd"
   else
-    fish -c "curl -L https://github.com/cortesi/devd/releases/download/v0.5/devd-0.5-linux64.tgz"
-    #TODO Proccess zip file
+    __koi_report "warn" "You don't have devd installed. Please visit https://github.com/cortesi/devd."
   end  
 end
 
-printf "preinstallation successful\n"
+if not type modd > /dev/null
+  if type go > /dev/null
+    printf "Installing modd..."
+    fish -c "go get github.com/cortesi/modd/cmd/modd > /dev/null"
+  else
+    __koi_report "warn" "You don't have devd installed. Please visit https://github.com/cortesi/devd." 
+  end  
+end
