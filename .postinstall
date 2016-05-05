@@ -1,5 +1,5 @@
 #!/usr/bin/env fish
-
+mkdir -p css
 printf "Installing Neutron...\n"
 fish -c "git clone --quiet https://github.com/NeutronCSS/neutroncss sass/neutron & await"
 if test -s "sass/neutron"
